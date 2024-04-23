@@ -28,13 +28,13 @@ const SpeechToText = () => {
                 <Typography variant="subtitle2" display="block" gutterBottom>
                     Microphone: {listening ? 'on' : 'off'}
                 </Typography>
-                <ButtonGroup variant="outlined" aria-label="Loading button group">
+                <ButtonGroup variant="outlined" aria-label="Loading button group" sx={{mt:2, mb: 2}}>
                     <Button variant='contained' onClick={()=>SpeechRecognition.startListening()} startIcon={<Mic />}>Start</Button>
                     <Button variant='contained' onClick={SpeechRecognition.stopListening} startIcon={<Stop />}>Stop</Button>
                     <Button variant='contained' onClick={resetTranscript} startIcon={<RestartAlt />}>Reset</Button>
                 </ButtonGroup>
                 <Typography variant="subtitle2" display="block" gutterBottom>
-                    {transcript}
+                    <b>Your text here:</b> <br />{transcript}
                 </Typography>
             </Grid>
         </Grid>
