@@ -73,7 +73,7 @@ function ChildMenu({parent}: ChildMenuProps){
                         <List component="div" disablePadding>
                         {
                             parent.children.map((item) => (
-                                <ListItemButton sx={{ pl: 4 }} onClick={()=>navigate(item.path)}>
+                                <ListItemButton sx={{ pl: 4 }} onClick={()=>navigate(item.path)} key={item.path}>
                                     <ListItemIcon>
                                         {item.icon}
                                     </ListItemIcon>
@@ -111,7 +111,7 @@ export default function LeftMenu() {
       
     >
         {
-            menu.map((item) => <ChildMenu parent={item} />)
+            menu.map((item) => <ChildMenu parent={item} key={item.path} />)
         }
       
       
