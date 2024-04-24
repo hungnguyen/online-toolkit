@@ -1,6 +1,5 @@
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import { useState } from "react";
-import Layout from "../../components/Layout";
 
 export default function TextPattern(){
     const [value, setValue] = useState<string>("");

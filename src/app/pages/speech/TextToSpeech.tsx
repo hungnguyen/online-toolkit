@@ -1,7 +1,6 @@
 import { Pause, PlayArrow,  Stop } from "@mui/icons-material";
 import { Button, ButtonGroup, FormControl, Grid, InputLabel, MenuItem, Select, Slider, TextField, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
-import Layout from "../../components/Layout";
 
 const TextToSpeech = () => {
   const [isPaused, setIsPaused] = useState(false);

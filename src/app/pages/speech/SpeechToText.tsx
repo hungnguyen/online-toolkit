@@ -1,5 +1,4 @@
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import Layout from '../../components/Layout';
 import { Button, ButtonGroup, Grid, Typography } from '@mui/material';
 import { Mic, RestartAlt, Stop } from '@mui/icons-material';
 
