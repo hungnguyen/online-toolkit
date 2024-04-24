@@ -1,14 +1,7 @@
-import * as React from 'react';
 import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
 import { IMenu } from '../models/menu.interface';
-import { Comment, Mic, Pattern, RecordVoiceOver, Straighten, TextFields } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
+import { Camera, Comment, Construction, Html, Link, Mic, Palette, Pattern, QrCode, RecordVoiceOver, Straighten, TextFields } from '@mui/icons-material';
+import ChildMenu from './ChildMenu';
 
 const menu: IMenu[] = [
     {
@@ -24,6 +17,16 @@ const menu: IMenu[] = [
                 path: "/text-pattern",
                 label: "Text Pattern",
                 icon: <Pattern />
+            },
+            {
+                path: "/html-en-decode",
+                label: "HTML Encode & Decode",
+                icon: <Html />
+            },
+            {
+                path: "/url-en-decode",
+                label: "URL Encode & Decode",
+                icon: <Link />
             }
         ]
     },
@@ -42,66 +45,33 @@ const menu: IMenu[] = [
                 icon: <RecordVoiceOver />
             }
         ]
+    },
+    {
+        icon: <Construction />,
+        label: "Other Functions",
+        children: [
+            {
+                path: "/qr-code",
+                label: "Generate QR Code",
+                icon: <QrCode />
+            },
+            {
+                path: "/color-picker",
+                label: "Color Picker",
+                icon: <Palette />
+            },
+            {
+                path: "/webcam",
+                label: "Webcam",
+                icon: <Camera />
+            },
+        ]
     }
-
 ] as IMenu[];
 
-interface ChildMenuProps{
-    parent: IMenu;
-}
-function ChildMenu({parent}: ChildMenuProps){
-    const navigate = useNavigate();
-    const [open, setOpen] = React.useState(false);
 
-    const handleClick = () => {
-      setOpen(!open);
-    };
-
-    return(
-        <>
-        {
-            parent.children.length > 0 ? (
-                <>
-                    <ListItemButton onClick={handleClick}>
-                        <ListItemIcon>
-                            {parent.icon}
-                        </ListItemIcon>
-                        <ListItemText primary={parent.label} />
-                        {open ? <ExpandLess /> : <ExpandMore />}
-                    </ListItemButton>
-                    <Collapse in={open} timeout="auto" unmountOnExit>
-                        <List component="div" disablePadding>
-                        {
-                            parent.children.map((item) => (
-                                <ListItemButton sx={{ pl: 4 }} onClick={()=>navigate(item.path)} key={item.path}>
-                                    <ListItemIcon>
-                                        {item.icon}
-                                    </ListItemIcon>
-                                    <ListItemText primary={item.label} />
-                                </ListItemButton>
-                            ))
-                        }
-                        </List>
-                    </Collapse>
-                </>
-            ): (
-                <>
-                    <ListItemButton onClick={()=>navigate(parent.path)}>
-                        <ListItemIcon>
-                            {parent.icon}
-                        </ListItemIcon>
-                        <ListItemText primary={parent.label} />
-                    </ListItemButton>
-                </>
-            )
-        }
-        </>
-    )
-}
 
 export default function LeftMenu() {
-  
-
   return (
     <>
     <List
@@ -113,8 +83,6 @@ export default function LeftMenu() {
         {
             menu.map((item) => <ChildMenu parent={item} key={item.path} />)
         }
-      
-      
     </List>
     </>
   );
