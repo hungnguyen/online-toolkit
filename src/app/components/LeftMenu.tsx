@@ -1,6 +1,6 @@
 import List from '@mui/material/List';
 import { IMenu } from '../models/menu.interface';
-import { Camera, Comment, Construction, Html, Link, Mic, Palette, Pattern, QrCode, RecordVoiceOver, Straighten, TextFields } from '@mui/icons-material';
+import { Camera, Comment, Compress, Construction, FindReplace, Html, Link, Mic, Palette, Pattern, QrCode, RecordVoiceOver, Straighten, TextFields } from '@mui/icons-material';
 import ChildMenu from './ChildMenu';
 
 const menu: IMenu[] = [
@@ -27,6 +27,16 @@ const menu: IMenu[] = [
                 path: "/url-en-decode",
                 label: "URL Encode & Decode",
                 icon: <Link />
+            },
+            {
+                path: "/replace-text",
+                label: "Replace Text",
+                icon: <FindReplace />
+            },
+            {
+                path: "/minify-text",
+                label: "Minify Text",
+                icon: <Compress />
             }
         ]
     },
@@ -75,6 +85,7 @@ export default function LeftMenu() {
   return (
     <>
     <List
+        dense={true}
       sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
       component="nav"
       aria-labelledby="nested-list-subheader"

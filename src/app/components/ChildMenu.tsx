@@ -28,7 +28,7 @@ export default function ChildMenu({parent}: ChildMenuProps){
                         {open ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={open} timeout="auto" unmountOnExit>
-                        <List component="div" disablePadding>
+                        <List component="div" disablePadding dense={true}>
                         {
                             parent.children.map((item) => (
                                 <ListItemButton sx={{ pl: 4 }} onClick={()=>navigate(item.path)} key={item.path}>

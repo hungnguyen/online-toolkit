@@ -9,6 +9,8 @@ import UrlEnDeCode from "./app/pages/text/UrlEnDeCode"
 import GenerateQrCode from "./app/pages/others/GenerateQrCode"
 import ColorPicker from "./app/pages/others/ColorPicker"
 import YourWebcam from "./app/pages/others/YourWebcam"
+import ReplaceText from "./app/pages/text/ReplaceText"
+import MinifyText from "./app/pages/text/MinifyText"
 
 function App() {
   const router = createBrowserRouter([
@@ -51,6 +53,14 @@ function App() {
         {
           path: "/webcam",
           element: <YourWebcam />
+        },
+        {
+            path: "/replace-text",
+            element: <ReplaceText />
+        },
+        {
+            path: "/minify-text",
+            element: <MinifyText />
         }
       ]
     },
